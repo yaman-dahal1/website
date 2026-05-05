@@ -4,7 +4,7 @@ require_once 'config/database.php';
 include_once 'includes/header.php';
 
 $db = new Database();
-$conn = $db->getConnection();
+$con = $db->getConnection();
 
 // Handle Contact Form Submission (POST)
 $form_status = '';
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_contact'])) {
     if (empty($errors)) {
         try {
             $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
-            $stmt = $conn->prepare($sql);
+            $stmt = $con->prepare($sql);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':message', $message);
@@ -48,7 +48,7 @@ $show_success = isset($_GET['status']) && $_GET['status'] == 'success';
 // Fetch dynamic projects from database
 $projects = [];
 try {
-    $stmt = $conn->query("SELECT id, title, description, image_url, project_link FROM projects ORDER BY id DESC LIMIT 6");
+    $stmt = $con->query("SELECT id, title, description, image_url, project_link FROM projects ORDER BY id DESC LIMIT 6");
     $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     $projects = [];
@@ -60,9 +60,9 @@ try {
     <div class="container hero-container">
         <div class="hero-content">
             <div class="hero-badge">✨ Portfolio 2025</div>
-            <h1>Alex <span>Morgan</span></h1>
-            <div class="typed-text">Creative Developer & UI Architect</div>
-            <p>Crafting immersive digital experiences with modern web technologies. Based globally, creating impact through code and design storytelling.</p>
+            <h1>Yaman <span>Dahal</span></h1>
+            <div class="typed-text">Beginner in field of web development</div>
+            <p>Currently experiencing new things and learning a lot of things about web development from Life Tech computer classes.</p>
             <div class="hero-buttons">
                 <a href="#portfolio" class="btn btn-primary"><i class="fas fa-arrow-down"></i> View Work</a>
                 <a href="#contact" class="btn btn-outline">Let's Talk</a>
@@ -76,7 +76,7 @@ try {
         </div>
         <div class="hero-image">
             <div class="image-wrapper">
-                <img src="assets/img/profile.jpg" alt="Alex Morgan" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+ <img src="assets/img/profile.jpg" alt="Alex Morgan" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
             </div>
         </div>
     </div>
@@ -108,9 +108,9 @@ try {
             </div>
             <div class="about-text">
                 <h3>Creative Technologist</h3>
-                <p>I'm Alex — a web developer with 6+ years of experience turning complex ideas into elegant interfaces. I've worked with startups and global agencies to deliver high-performance web applications. My code focuses on accessibility, speed, and maintainable architecture.</p>
-                <p><i class="fas fa-check-circle"></i> 50+ Projects completed</p>
-                <p><i class="fas fa-check-circle"></i> 24/7 support & collaboration</p>
+                <p>I'm Yaman — a web developer learning new things and gaining a lotws of information about web development recently. I am learning web development from Life Tech classes from Dipak Raut who is a very skilled frontend developer.</p>
+                <p><i class="fas fa-check-circle"></i> Currently Learning web development</p>
+                <p><i class="fas fa-check-circle"></i> Interested in learning new things about web development</p>
                 <a href="#contact" class="btn btn-small">Contact Me <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -162,10 +162,10 @@ try {
             <div class="contact-info">
                 <h3>Connect Directly</h3>
                 <ul class="contact-details">
-                    <li><i class="fas fa-phone-alt"></i> <strong>Call me:</strong> <a href="tel:+1234567890">+1 234 567 890</a> (Direct dial)</li>
+                    <li><i class="fas fa-phone-alt"></i> <strong>Call me:</strong> <a href="tel:9712064933">9712064933</a> (Direct dial)</li>
                     <li><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank">Chat on WhatsApp <i class="fas fa-external-link-alt"></i></a></li>
-                    <li><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://facebook.com/#" target="_blank">/alex.morgan.page</a></li>
-                    <li><i class="fas fa-envelope"></i> <strong>Email:</strong> hello@alexmorgan.dev</li>
+                    <li><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://facebook.com/#" target="_blank">Yaman Dahal</a></li>
+                    <li><i class="fas fa-envelope"></i> <strong>Email:</strong> yamandahal10@gmail.com</li>
                 </ul>
                 <div class="availability">
                     <i class="fas fa-clock"></i> Response within 24 hours
