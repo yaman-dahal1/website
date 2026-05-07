@@ -29,7 +29,7 @@ session_start();
             </div>
             <nav class="navbar" id="navbar">
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Homee</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
